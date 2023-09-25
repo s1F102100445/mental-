@@ -20,6 +20,5 @@ from mental import views as mental_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mental.urls')),
     path('mental/', include('mental.urls')),
 ]
