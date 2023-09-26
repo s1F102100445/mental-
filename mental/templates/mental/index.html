@@ -29,6 +29,7 @@
     </div>
     <script>
         $(document).ready(function() {
+            $('#messages').append('<div>メンタルマン: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
             $('#openChatbot').click(function() {
                 $('#openChatbot').fadeOut();
                 $('.chatbot-window').fadeIn();
@@ -41,7 +42,7 @@
                 let message = $('#userInput').val();
                 $('#messages').append('<div>あなた: ' + message + '</div>');
                 $.post( "{% url 'index' %}" , { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-                    $('#messages').append('<div>Bot: ' + data.message + '</div>');
+                    $('#messages').append('<div>メンタルマン: ' + data.message + '</div>');
                 });
                 $('#userInput').val(''); // clear input
             });

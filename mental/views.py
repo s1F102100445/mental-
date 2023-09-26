@@ -13,8 +13,14 @@ def index(request):
     conversation = request.session.get('conversation', [])     # これまでの会話をセッションから取得
     conversation.append(user_message)     # ユーザーのメッセージを会話に追加
     prompt = " ".join(conversation)     # コンテキストとしてプロンプトを作成
-    response = openai.Completion.create(model="text-davinci-003", prompt=prompt, max_tokens=150)
-    bot_response = response.choices[0].text.strip()     # Botの応答を会話に追加
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    bot_response = response.choices[0].message["content"]     # Botの応答を会話に追加
     conversation.append(bot_response)
     request.session['conversation'] = conversation     # 更新された会話をセッションに保存
     return JsonResponse({'message': bot_response})
