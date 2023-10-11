@@ -14,7 +14,7 @@ def index(request):
     conversation.append(user_message)     # ユーザーのメッセージを会話に追加
     prompt = " ".join(conversation)     # コンテキストとしてプロンプトを作成
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
