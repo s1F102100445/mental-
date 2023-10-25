@@ -10,19 +10,14 @@ def index(request):
     openai.api_base = 'https://api.openai.iniad.org/api/v1'
    
     user_message = request.POST.get('message') 
-    conversation = request.session.get('conversation', [])     # これまでの会話をセッションから取得
-    conversation.append(user_message)     # ユーザーのメッセージを会話に追加
-    prompt = " ".join(conversation)     # コンテキストとしてプロンプトを作成
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt}
-        ]
+            {"role": "system", "content": "あなたは会話相手の心を癒してください。また、会話を続けるようにユーザーに質問を問うてください。つらい、しんどいなどの言葉がきたら、大丈夫と言ってください。"},
+            {"role": "user", "content": user_message}
+        ],
     )
-    bot_response = response.choices[0].message["content"]     # Botの応答を会話に追加
-    conversation.append(bot_response)
-    request.session['conversation'] = conversation     # 更新された会話をセッションに保存
+    bot_response = response.choices[0].message["content"]
     return JsonResponse({'message': bot_response})
 
 def index_view(request):
