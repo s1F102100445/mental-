@@ -29,24 +29,38 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#messages').append('<div>メンタルマン: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
-            $('#openChatbot').click(function() {
-                $('#openChatbot').fadeOut();
-                $('.chatbot-window').fadeIn();
-            });
-            $('#closeChatbot').click(function() {
-                $('.chatbot-window').fadeOut();
-                $('#openChatbot').fadeIn();
-            });
-            $('#sendMessage').click(function() {
-                let message = $('#userInput').val();
-                $('#messages').append('<div>あなた: ' + message + '</div>');
-                $.post( "{% url 'index' %}" , { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-                    $('#messages').append('<div>メンタルマン: ' + data.message + '</div>');
-                });
-                $('#userInput').val(''); // clear input
-            });
-        });
+    $('#messages').append('<div>メンタルマン: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
+    $('#openChatbot').click(function() {
+        $('#openChatbot').fadeOut();
+        $('.chatbot-window').fadeIn();
+    });
+    $('#closeChatbot').click(function() {
+        closeChatbot();
+    });
+    $('#sendMessage').click(function() {
+        sendMessage();
+    });
+});
+
+function closeChatbot() {
+    $('.chatbot-window').fadeOut();
+    $('#openChatbot').fadeIn();
+}
+
+function sendMessage() {
+    let message = $('#userInput').val();
+    $('#messages').append('<div>あなた: ' + message + '</div>');
+    
+    $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
+        handleBotResponse(data.message);
+    });
+
+    $('#userInput').val('');
+}
+
+function handleBotResponse(message) {
+    $('#messages').append('<div>メンタルマン: ' + message + '</div>');
+}
     </script>
 </body>
 </html>
