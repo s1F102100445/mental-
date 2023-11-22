@@ -98,3 +98,30 @@ p {
       transform: translateY(-100vh); /* 画面外で停止 */
     }
   }
+
+  .circle1 {
+    width: 50px; /* 円の幅を設定 */
+    height: 50px; /* 円の高さを設定 */
+    left: -5%; /* 左からの位置を設定 */
+    animation: riseUp 15s infinite; 
+    background-color: yellow;
+    border-radius: 50%;
+  }
+  
+  .circle2 {
+    width: 100px;
+    height: 100px;
+    left: 200%;
+    animation: riseUp 10s infinite; 
+    border-radius: 50%;
+    background-color: yellow;
+  }
+  
+  .circle3 {
+    width: 150px;
+    height: 150px;
+    left: -100%;
+    border-radius: 50%;
+    animation: riseUp 12s infinite; 
+    background-color: yellow;
+  }
