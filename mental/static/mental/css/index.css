@@ -12,9 +12,15 @@ overflow: hidden;
 p {
   margin: 0px;
 }
+
+ h1 {
+  font-size: 80px;
+  color:rgb(0, 195, 255);
+ }
+
 .chatbot-button {
   position: fixed;
-
+  top: 80%;
 }
 .chatbot-button button {
   background-color: burlywood;
@@ -25,6 +31,7 @@ p {
   cursor: pointer;
   color: rgb(255, 255, 255);
   position: relative;
+
 }
 .chatbot-button button::after {
   content: ' \2191';
