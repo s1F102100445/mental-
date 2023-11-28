@@ -1,71 +1,180 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #66d59c; /* 背景色を黄緑っぽい色に設定 */
+margin: 0;
+padding: 0;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
 }
 p {
-    margin: 0px;
+  margin: 0px;
 }
 .chatbot-button {
-    position: fixed;
+  position: fixed;
 
 }
 .chatbot-button button {
-    background-color: burlywood;
-    padding: 15px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: black;
-    position: relative;
+  background-color: burlywood;
+  padding: 15px 25px;
+  font-size: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  position: relative;
 }
 .chatbot-button button::after {
-    content: ' \2191';
-    font-size: 20px;
-    position: relative;
-    top: -2px;
+  content: ' \2191';
+  font-size: 20px;
+  position: relative;
+  top: -2px;
 }
 .chatbot-window {
-    position: fixed;
-    bottom: 10%;
-    right: 2%;
-    width: 1250px;
-    height: 500px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none; /* initially hidden */
+  position: fixed;
+  bottom: 10%;
+  right: 2%;
+  width: 1250px;
+  height: 500px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none; /* initially hidden */
 }
 .chatbot-header {
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .chatbot-messages {
-    padding: 10px;
-    overflow-y: scroll;
-    height: 430px;
+  padding: 10px;
+  overflow-y: scroll;
+  height: 430px;
 }
 .chatbot-input {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 .chatbot-input input {
-    width: 80%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 .chatbot-input button {
-    padding: 5px 15px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 80px;
+  padding: 5px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80px;
 }
+
+.circle {
+  width: 100px; /* 円の幅を設定 */
+  height: 100px; /* 円の高さを設定 */
+  border-radius: 50%; /* 円形にする */
+  background-color: yellow; /* 背景色を黄色に設定 */
+  position: absolute;
+  top:20px;
+  left:-15px;
+  animation: riseUp 11s infinite; /* 上に上がるアニメーションを設定 */
+}
+
+@keyframes riseUp {
+  0% {
+    transform: translateY(100vh);
+  }
+  50% {
+    transform: translateY(-100vh); /* 画面外まで上がる */
+  }
+  100% {
+    transform: translateY(-100vh); /* 画面外で停止 */
+  }
+}
+
+.circle1 {
+  width: 50px; /* 円の幅を設定 */
+  height: 50px; /* 円の高さを設定 */
+  left: 12%; /* 左からの位置を設定 */
+  animation: riseUp 10s infinite; 
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  top:100px;
+}
+
+.circle2 {
+  width: 300px;
+  height: 300px;
+  left: 14%;
+  animation: riseUp 19s infinite; 
+  border-radius: 50%;
+  background-color: yellow;
+  position: absolute;
+  top:80px;
+}
+
+.circle3 {
+  width: 75px;
+  height: 75px;
+  left: 56%;
+  border-radius: 50%;
+  animation: riseUp 13s infinite; 
+  background-color: yellow;
+  position: absolute;
+  top:20px;
+}
+
+.circle4 {
+  width: 100px;
+  height: 100px;
+  left: 66%;
+  border-radius: 50%;
+  animation: riseUp  15s infinite; 
+  background-color: yellow;
+  position: absolute;
+  top:20px;
+}
+
+.circle5 {
+  width: 45px;
+  height: 45px;
+  left: 79%;
+  border-radius: 50%;
+  animation: riseUp 24s infinite; 
+  background-color: yellow;
+  position: absolute;
+  top:20px;
+}
+
+.circle6 {
+  width: 250px;
+  height: 250px;
+  left: 84%;
+  animation: riseUp 14s infinite; 
+  border-radius: 50%;
+  background-color: yellow;
+  position: absolute;
+  top:80px;
+}
+
+.circle7 {
+  width: 60px;
+  height: 60px;
+  left: 93%;
+  border-radius: 50%;
+  animation: riseUp 10s infinite; 
+  background-color: yellow;
+  position: absolute;
+  top:20px;
+}
+
