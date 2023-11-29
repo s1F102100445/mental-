@@ -11,7 +11,7 @@
     <link href="{% static 'mental/css/index.css' %}" rel="stylesheet">
 </head>
 <body>
-    
+
     <div class="circle"></div>
     <div class="circle1"></div>
     <div class="circle2"></div>
@@ -20,7 +20,8 @@
     <div class="circle5"></div>
     <div class="circle6"></div>
     <div class="circle7"></div>
-    
+   
+    <h1>タイトル</h1>
     
     <!-- Chatbot button -->
     <div class="chatbot-button">
@@ -34,44 +35,63 @@
         </div>
         <div class="chatbot-messages" id="messages"></div>
         <div class="chatbot-input">
-            <input type="text" id="userInput" placeholder="何かお困りですか？">
+            <input type="text" id="userInput" onkeydown="Enter(event)" placeholder="何かお困りですか？">
             <button id="sendMessage">送信</button>
         </div>
     </div>
     <script>
         $(document).ready(function() {
-    $('#messages').append('<div>メンタルマン: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
-    $('#openChatbot').click(function() {
-        $('#openChatbot').fadeOut();
-        $('.chatbot-window').fadeIn();
-    });
-    $('#closeChatbot').click(function() {
-        closeChatbot();
-    });
-    $('#sendMessage').click(function() {
-        sendMessage();
-    });
-});
+            $('#messages').append('<div>キャラクター: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
+            $('#openChatbot').click(function() {
+                $('#openChatbot').fadeOut();
+                $('.chatbot-window').fadeIn();
+            });
+            $('#closeChatbot').click(function() {
+                closeChatbot();
+            });
+            $('#sendMessage').click(function() {
+                sendMessage();
+            });
+        });
 
-function closeChatbot() {
-    $('.chatbot-window').fadeOut();
-    $('#openChatbot').fadeIn();
-}
+        function Enter(event){
+            if (event.key ==="Enter") {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
 
-function sendMessage() {
-    let message = $('#userInput').val();
-    $('#messages').append('<div>あなた: ' + message + '</div>');
-    
-    $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-        handleBotResponse(data.message);
-    });
+        function validateForm() {
+            var inputText = document.getElementById("userInput").value.trim();
+            if (inputText === "") {
+            alert("入力が空白です。");
+            return false;
+            }
+            return true;
+        }
 
-    $('#userInput').val('');
-}
+        function closeChatbot() {
+            $('.chatbot-window').fadeOut();
+            $('#openChatbot').fadeIn();
+        }
 
-function handleBotResponse(message) {
-    $('#messages').append('<div>メンタルマン: ' + message + '</div>');
-}
+        function sendMessage() {
+            if (validateForm()){
+                let message = $('#userInput').val();
+                $('#messages').append('<div>あなた: ' + message + '</div');
+
+                $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
+                    handleBotResponse(data.message);
+                });
+
+                $('#userInput').val('');
+            }
+        }
+
+        function handleBotResponse(message) {
+            $('#messages').append('<div>キャラクター: ' + message + '</div>');
+        }
+
     </script>
 </body>
 </html>
