@@ -31,7 +31,7 @@ p {
   cursor: pointer;
   color: rgb(255, 255, 255);
   position: relative;
-
+  font-weight: bold;
 }
 .chatbot-button button::after {
   content: ' \2191';
