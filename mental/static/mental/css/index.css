@@ -18,12 +18,13 @@ p {
   color:rgb(0, 195, 255);
  }
 
-.chatbot-button {
+ .chatbot-button {
   position: fixed;
   top: 80%;
 }
+
 .chatbot-button button {
-  background-color: burlywood;
+  background-color: burlywood; /* デフォルトの背景色 */
   padding: 15px 25px;
   font-size: 35px;
   border: none;
@@ -31,9 +32,13 @@ p {
   cursor: pointer;
   color: rgb(255, 255, 255);
   position: relative;
-
+  transition: background-color 0.3s; /* 背景色が滑らかに変わるようにする */
 }
 
+/* マウスオーバー時のスタイル */
+.chatbot-button button:hover {
+  background-color: #f1c27d; /* ホバー時の背景色を変更 */
+}
 
 .chatbot-window {
   position: fixed;
