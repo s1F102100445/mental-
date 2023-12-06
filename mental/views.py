@@ -6,10 +6,8 @@ import openai
 import wave
 import pyaudio
 import json
+from django.shortcuts import redirect
 # Create your views here.
-
-
-
 def openWave():
     wf = wave.open("./test.wav", "r")
 
