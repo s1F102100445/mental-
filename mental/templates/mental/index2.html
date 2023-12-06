@@ -10,6 +10,7 @@
     {% load static %}
     <link href="{% static 'mental/css/index.css' %}" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="circle"></div>
@@ -22,7 +23,7 @@
     <div class="circle7"></div>
    
     <h1>セラピア</h1>
-    <a href="{% url 'index_view2' %}">キャラクターを変える</a>
+    
     <!-- Chatbot button -->
     <div class="chatbot-button">
         <button id="openChatbot">チャットを開く</button>
@@ -82,7 +83,7 @@
                 let message = $('#userInput').val();
                 $('#messages').append('<div>あなた: ' + message + '</div');
 
-                $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
+                $.post("{% url 'index2' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
                     handleBotResponse(data.message);
                 });
 
