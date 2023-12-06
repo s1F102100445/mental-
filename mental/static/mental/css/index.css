@@ -33,12 +33,8 @@ p {
   position: relative;
 
 }
-.chatbot-button button::after {
-  content: ' \2191';
-  font-size: 20px;
-  position: relative;
-  top: -2px;
-}
+
+
 .chatbot-window {
   position: fixed;
   bottom: 10%;
