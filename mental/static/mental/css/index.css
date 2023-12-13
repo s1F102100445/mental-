@@ -1,13 +1,18 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #66d59c; /* 背景色を黄緑っぽい色に設定 */
+font-family: Arial, sans-serif;
+background-color: #66d59c; /* 背景色を黄緑っぽい色に設定 */
 margin: 0;
 padding: 0;
 height: 100vh;
 display: flex;
-align-items: center;
-justify-content: center;
 overflow: hidden;
+}
+#container {
+  height: 70%;
+  padding: 80px 20px 10px 20px;
+}
+#container img {
+  height: 100%;
 }
 p {
   margin: 0px;
@@ -21,6 +26,7 @@ p {
  .chatbot-button {
   position: fixed;
   top: 80%;
+  padding-left: 500px;
 }
 
 .chatbot-button button {
