@@ -21,4 +21,5 @@ from mental import views as mental_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mental/', include('mental.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

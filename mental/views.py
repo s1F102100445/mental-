@@ -8,8 +8,8 @@ import pyaudio
 import json
 # Create your views here.
 
-
-
+def top(request):
+    return render(request, 'mental/top.html')
 def openWave():
     wf = wave.open("./test.wav", "r")
 
