@@ -1,23 +1,57 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #66d59c; /* 背景色を黄緑っぽい色に設定 */
-margin: 0;
-padding: 0;
-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+ /*display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;*/
 }
 p {
   margin: 0px;
 }
 
- h1 {
-  font-size: 80px;
-  color:rgb(0, 195, 255);
- }
+h1{
+  text-align: center; /* テキストを中央寄せにします */
+  margin-top: 0; /* 上辺からのマージンを0にします */
+  padding-top: 20px; /* 上部に少し余白を与えます（必要に応じて調整）*/
+}
 
+.characters-select-area {
+  padding: 15px;
+  margin: auto;
+  max-width: 960px; /* コンテナの幅を増やす */
+  background-color: #fff;
+}
+
+
+.character-row {
+  display: flex;
+  justify-content: space-around; /* または center に戻す */
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap; /* 折り返しを許可する */
+}
+
+.character-container {
+  /* 固定幅ではなく、flexboxの機能を使用して内容に応じて伸縮するようにする */
+  flex: 1; /* flex-grow, flex-shrink と flex-basis のショートハンド */
+  border: 1px solid #000;
+  max-width: 100px;
+  margin: 0 10px; /* より多くのマージンを提供する */
+  /* height: 100px; */ /* 高さを固定値から削除することも検討する */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.character {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain; /* 画像がはみ出さないようにする */
+}
+}
  .chatbot-button {
   position: fixed;
   top: 80%;

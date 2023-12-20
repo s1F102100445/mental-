@@ -21,81 +21,23 @@
     <div class="circle6"></div>
     <div class="circle7"></div>
    
-    <h1>セラピア</h1>
-    <a href="{% url 'index_view2' %}">キャラクターを変える</a>
-    <h1>I talk</h1>
+    <title>キャラクター選択画面</title>
+    <h1>キャラクター選択画面</h1>
     
-    <!-- Chatbot button -->
-    <div class="chatbot-button">
-        <button id="openChatbot">チャットを開く</button>
-    </div>
-    
-    
-    <!-- Chatbot window -->
-    <div class="chatbot-window">
-        <div class="chatbot-header">
-            <p>チャット</p>
-            <button id="closeChatbot">閉じる</button>
-        </div>
-        <div class="chatbot-messages" id="messages"></div>
-        <div class="chatbot-input">
-            <input type="text" id="userInput" onkeydown="Enter(event)" placeholder="何かお困りですか？">
-            <button id="sendMessage">送信</button>
-        </div>
-    </div>
-    <script>
-        $(document).ready(function() {
-            $('#messages').append('<div>キャラクター: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
-            $('#openChatbot').click(function() {
-                $('#openChatbot').fadeOut();
-                $('.chatbot-window').fadeIn();
-            });
-            $('#closeChatbot').click(function() {
-                closeChatbot();
-            });
-            $('#sendMessage').click(function() {
-                sendMessage();
-            });
-        });
+   <div class="characters-select-area">
+  <a href="{% url 'index_view2' %}">
+    <img src="{% static 'mental/img/fish.png' %} "alt="キャラクター1" class="character">
+  </a>
+  <a href="character2.html">
+    <img src="{% static 'mental/img/fish.png' %} " alt="キャラクター2" class="character">
+  </a>
+  <a href="character3.html">
+    <img src="{% static 'mental/img/fish.png' %} " alt="キャラクター3" class="character">
+  </a>
+  <a href="character4.html">
+    <img src="{% static 'mental/img/fish.png' %} " alt="キャラクター4" class="character">
+  </a>
+</div>
 
-        function Enter(event){
-            if (event.key ==="Enter") {
-                event.preventDefault();
-                sendMessage();
-            }
-        }
-
-        function validateForm() {
-            var inputText = document.getElementById("userInput").value.trim();
-            if (inputText === "") {
-            alert("入力が空白です。");
-            return false;
-            }
-            return true;
-        }
-
-        function closeChatbot() {
-            $('.chatbot-window').fadeOut();
-            $('#openChatbot').fadeIn();
-        }
-
-        function sendMessage() {
-            if (validateForm()){
-                let message = $('#userInput').val();
-                $('#messages').append('<div>あなた: ' + message + '</div');
-
-                $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-                    handleBotResponse(data.message);
-                });
-
-                $('#userInput').val('');
-            }
-        }
-
-        function handleBotResponse(message) {
-            $('#messages').append('<div>キャラクター: ' + message + '</div>');
-        }
-
-    </script>
 </body>
 </html>
