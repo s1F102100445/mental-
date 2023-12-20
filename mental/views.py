@@ -1,12 +1,14 @@
 import requests
-from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import openai
 import wave
 import pyaudio
 import json
-from django.shortcuts import redirect
+
 # Create your views here.
 
 def top(request):
@@ -109,3 +111,14 @@ def index_view(request):
 
 def index_view2(request):
     return render(request, 'mental/index2.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('top')  # ユーザが作成されたら、ホームページにリダイレクトするか適切なページにリダイレクトします。
+    else:
+        form = UserCreationForm()
+    return render(request, 'mental/register.html', {'form': form})
