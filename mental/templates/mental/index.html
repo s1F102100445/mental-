@@ -32,6 +32,7 @@
     
     
     <!-- Chatbot window -->
+    <div class="chatbot-container">
     <div class="chatbot-window">
         <div class="chatbot-header">
             <p>チャット</p>
@@ -43,9 +44,10 @@
             <button id="sendMessage">送信</button>
         </div>
     </div>
+    </div>
     <script>
         $(document).ready(function() {
-            $('#messages').append('<div>キャラクター: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
+            $('#messages').append('<div class="bot-message"><span>' + "こんにちは！今日何があったか聞かせてくれる？" + '</span></div>');
             $('#openChatbot').click(function() {
                 $('#openChatbot').fadeOut();
                 $('.chatbot-window').fadeIn();
@@ -80,21 +82,21 @@
         }
 
         function sendMessage() {
-            if (validateForm()){
-                let message = $('#userInput').val();
-                $('#messages').append('<div>あなた: ' + message + '</div');
+    if (validateForm()){
+        let message = $('#userInput').val();
+        $('#messages').append('<div class="user-message"><span>' + message + '</span></div>');
 
-                $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-                    handleBotResponse(data.message);
-                });
+        $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
+            handleBotResponse(data.message);
+        });
 
-                $('#userInput').val('');
-            }
-        }
+        $('#userInput').val('');
+    }
+}
 
         function handleBotResponse(message) {
-            $('#messages').append('<div>キャラクター: ' + message + '</div>');
-        }
+    $('#messages').append('<div class="bot-message"><span>' + message + '</span></div>');
+}
 
     </script>
 </body>

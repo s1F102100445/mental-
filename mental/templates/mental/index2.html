@@ -10,9 +10,8 @@
     {% load static %}
     <link href="{% static 'mental/css/index.css' %}" rel="stylesheet">
 </head>
-
 <body>
-
+    
     <div class="circle"></div>
     <div class="circle1"></div>
     <div class="circle2"></div>
@@ -21,8 +20,10 @@
     <div class="circle5"></div>
     <div class="circle6"></div>
     <div class="circle7"></div>
-   
-    <h1>セラピア</h1>
+    <div id="container">
+        <img src="{% static 'mental\img\animal_mark04_neko.png' %}">
+    </div>
+
     
     <!-- Chatbot button -->
     <div class="chatbot-button">
@@ -31,6 +32,7 @@
     
     
     <!-- Chatbot window -->
+    <div class="chatbot-container">
     <div class="chatbot-window">
         <div class="chatbot-header">
             <p>チャット</p>
@@ -42,9 +44,10 @@
             <button id="sendMessage">送信</button>
         </div>
     </div>
+    </div>
     <script>
         $(document).ready(function() {
-            $('#messages').append('<div>キャラクター: ' + 'こんにちは！今日何があったか聞かせてくれる？' + '</div>');
+            $('#messages').append('<div class="bot-message"><span>' + "こんにちは！今日何があったか聞かせてくれる？" + '</span></div>');
             $('#openChatbot').click(function() {
                 $('#openChatbot').fadeOut();
                 $('.chatbot-window').fadeIn();
@@ -79,21 +82,21 @@
         }
 
         function sendMessage() {
-            if (validateForm()){
-                let message = $('#userInput').val();
-                $('#messages').append('<div>あなた: ' + message + '</div');
+    if (validateForm()){
+        let message = $('#userInput').val();
+        $('#messages').append('<div class="user-message"><span>' + message + '</span></div>');
 
-                $.post("{% url 'index2' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
-                    handleBotResponse(data.message);
-                });
+        $.post("{% url 'index2' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
+            handleBotResponse(data.message);
+        });
 
-                $('#userInput').val('');
-            }
-        }
+        $('#userInput').val('');
+    }
+}
 
         function handleBotResponse(message) {
-            $('#messages').append('<div>キャラクター: ' + message + '</div>');
-        }
+    $('#messages').append('<div class="bot-message"><span>' + message + '</span></div>');
+}
 
     </script>
 </body>
