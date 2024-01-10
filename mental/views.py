@@ -41,7 +41,6 @@ def index(request):
     )
     bot_response = response.choices[0].message["content"]
 
-    # Use the VOICEVOX API to convert the text response into speech
     voicevox_response = requests.get(
     'https://deprecatedapis.tts.quest/v2/voicevox/audio/',
     params={
@@ -55,7 +54,6 @@ def index(request):
 )
 
     if voicevox_response.status_code == 200:
-        # If the response is successful, get the audio URL
         audio_data = voicevox_response.content  # 音声データを取得
 
         with open('./test.wav', 'wb') as audio_file:
@@ -72,13 +70,12 @@ def index2(request):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "あなたは会話相手の心を癒してください。また、会話を続けるようにユーザーに質問を問うてください。つらい、しんどいなどの言葉がきたら、大丈夫と言ってください,敬語を控えるように明るくふるまってください)"},
+            {"role": "system", "content": "こんにちは"},
             {"role": "user", "content": user_message}
         ],
     )
     bot_response = response.choices[0].message["content"]
 
-    # Use the VOICEVOX API to convert the text response into speech
     voicevox_response = requests.get(
     'https://deprecatedapis.tts.quest/v2/voicevox/audio/',
     params={
@@ -92,7 +89,6 @@ def index2(request):
 )
 
     if voicevox_response.status_code == 200:
-        # If the response is successful, get the audio URL
         audio_data = voicevox_response.content  # 音声データを取得
 
         with open('./test.wav', 'wb') as audio_file:

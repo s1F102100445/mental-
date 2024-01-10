@@ -1,62 +1,67 @@
 body {
-font-family: Arial, sans-serif;
-background-color: #66d59c; /* 背景色を黄緑っぽい色に設定 */
-margin: 0;
-padding: 0;
-height: 100vh;
-display: flex;
-overflow: hidden;
-}
-#container {
-  height: 70%;
-  padding: 80px 20px 10px 20px;
-}
-#container img {
-  height: 100%;
-}
-p {
-  margin: 0px;
-}
+  font-family: Arial, sans-serif;
+  background-color: #66d59c;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  }
 
- h1 {
-  font-size: 80px;
-  color:rgb(0, 195, 255);
- }
-
- .chatbot-button {
-  position: fixed;
-  top: 80%;
-  padding-left: 500px;
-}
-
-.chatbot-button button {
-  background-color: burlywood; /* デフォルトの背景色 */
-  padding: 15px 25px;
-  font-size: 35px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: rgb(255, 255, 255);
-  position: relative;
-  transition: background-color 0.3s; /* 背景色が滑らかに変わるようにする */
-}
-
-/* マウスオーバー時のスタイル */
-.chatbot-button button:hover {
-  background-color: #f1c27d; /* ホバー時の背景色を変更 */
-}
-
+  #container {
+    height: 70%;
+    padding: 80px 20px 10px 20px;
+  }
+  #container img {
+    height: 100%;
+  }
+  p {
+    margin: 0px;
+  }
+  
+   h1 {
+    font-size: 80px;
+    color:rgb(0, 195, 255);
+   }
+   .chatbot-button {
+    position: fixed;
+    top: 80%;
+    padding-left: 500px;
+  }
+  
+  .chatbot-button button {
+    background-color: burlywood;
+    padding: 15px 25px;
+    font-size: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  /* マウスオーバー時のスタイル */
+  .chatbot-button button:hover {
+    background-color: #f1c27d; 
+  }
+  .chatbot-container {
+    padding-top: 50px;
+    padding-left: 50px;
+  }
 .chatbot-window {
-  position: fixed;
-  bottom: 10%;
-  right: 2%;
-  width: 1250px;
+  width: 700px;
   height: 500px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
+  background: rgb(177, 177, 246);
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: none; /* initially hidden */
+  display: none;
+  box-sizing: border-box;
 }
+
+/* ヘッダー部分のスタイル */
 .chatbot-header {
   padding: 10px;
   background-color: #333;
@@ -66,32 +71,77 @@ p {
   display: flex;
   justify-content: space-between;
 }
+/* メッセージエリアのスタイル */
 .chatbot-messages {
   padding: 10px;
-  overflow-y: scroll;
-  height: 430px;
-}
-.chatbot-input {
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-.chatbot-input input {
-  width: 80%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.chatbot-input button {
-  padding: 5px 15px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 80px;
+  height: 380px;
+  overflow-y: auto;
 }
 
+/* 各メッセージのスタイル */
+.chatbot-messages > div {
+  margin-bottom: 10px;
+  clear: both;
+}
+
+/* ユーザーのメッセージスタイル */
+.chatbot-messages > div.user-message {
+  text-align: right;
+}
+
+/* ユーザーの吹き出しスタイル */
+.chatbot-messages > div.user-message > span {
+  display: inline-block;
+  background: #daf8cb;
+  border-radius: 10px;
+  padding: 5px 10px;
+  max-width: 70%;
+}
+
+/* ボット（キャラクター）のメッセージスタイル */
+.chatbot-messages > div.bot-message {
+  text-align: left;
+}
+
+/* ボットの吹き出しスタイル */
+.chatbot-messages > div.bot-message > span {
+  display: inline-block;
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  max-width: 70%;
+}
+
+/* テキスト入力部分のスタイル */
+.chatbot-input {
+  padding: 10px;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+  display: flex;
+}
+
+/* テキスト入力フィールドのスタイル */
+.chatbot-input > input[type="text"] {
+  flex-grow: 1;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* "送信"ボタンのスタイル */
+.chatbot-input > button {
+  padding: 5px 10px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chatbot-input > button:hover {
+  background-color: #4cae4c;
+}
 .circle {
   width: 100px; /* 円の幅を設定 */
   height: 100px; /* 円の高さを設定 */
@@ -191,4 +241,3 @@ p {
   position: absolute;
   top:20px;
 }
-
