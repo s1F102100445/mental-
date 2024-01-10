@@ -104,3 +104,6 @@ def index_view2(request):
 
 def index_main(request):
     return render(request, 'mental/main.html')
+
+def index_char(request):
+    return render(request, 'mental/login.html')
