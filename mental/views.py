@@ -80,8 +80,8 @@ def index2(request):
     'https://deprecatedapis.tts.quest/v2/voicevox/audio/',
     params={
         'key': voicevox_api_key,
-        'speaker': 1,
-        'pitch': 0,
+        'speaker': 11,
+        'pitch': 0.1,
         'intonationScale': 1,
         'speed': 1,
         'text': bot_response
