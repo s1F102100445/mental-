@@ -7,14 +7,16 @@ body {
   display: flex;
   overflow: hidden;
   }
-
-  #container {
-    height: 70%;
-    padding: 80px 20px 10px 20px;
-  }
-  #container img {
-    height: 100%;
-  }
+p.sample img {
+  width: 500px;
+  height: auto;
+  position: absolute;
+  top: 100px;
+}
+p.credit{
+  position: absolute;
+  bottom: 10%;
+}
   p {
     margin: 0px;
   }
@@ -55,7 +57,7 @@ body {
     padding-left: 50px;
   }
 .chatbot-window {
-  width: 700px;
+  width: 600px;
   height: 500px;
   background: rgb(177, 177, 246);
   border: 1px solid #ddd;
@@ -64,6 +66,8 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   box-sizing: border-box;
+  position: absolute;
+  left: 50%;
 }
 
 /* ヘッダー部分のスタイル */

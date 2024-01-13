@@ -21,12 +21,15 @@
     <div class="circle6"></div>
     <div class="circle7"></div>
     <div id="container">
-        <img src="{% static 'mental\img\IMG_1623.jpg' %}" alt="画像の説明" width="400" height="220">
+        <p class="sample">
+        <img src="{% static 'mental\img\IMG_1623.jpg' %}" alt="画像の説明">
+        </p>
     </div>
-
+    <p class="credit">VOICEVOX(音声): 春日部つむぎ</p>
     <div id="navigation-buttons">
+        <a href="http://127.0.0.1:8000/mental/index_main/" class="button">ホームに戻る</a>
         <a href="http://127.0.0.1:8000/mental/index_char/" class="button">▶キャラ選択へ</a>
-</div>
+    </div>
 
     <!-- Chatbot button -->
     <div class="chatbot-button">
@@ -46,10 +49,7 @@
         </div>
     </div>
     </div>
-    <div class="link">
-    <a href="http://127.0.0.1:8000/mental/index_main/">ホームに戻る</a><br>
-    </div>
-    <p>VOICEVOX: 春日部つむぎ</p>
+    
     <script>
         $(document).ready(function() {
             $('#messages').append('<div class="bot-message"><span>' + "こんにちは！今日何があったか聞かせてくれる？" + '</span></div>');
