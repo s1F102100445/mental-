@@ -1,13 +1,19 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import openai
 import wave
 import pyaudio
 import json
-from django.shortcuts import redirect
+
 # Create your views here.
+
+def top(request):
+    return render(request, 'mental/top.html')
+
 def openWave():
     wf = wave.open("./test.wav", "r")
 
@@ -107,3 +113,14 @@ def index_main(request):
 
 def index_char(request):
     return render(request, 'mental/login.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('top')
+    else:
+        form = UserCreationForm()
+    return render(request, 'mental/register.html', {'form': form})
