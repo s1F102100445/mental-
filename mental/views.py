@@ -11,9 +11,6 @@ import json
 
 # Create your views here.
 
-def top(request):
-    return render(request, 'mental/top.html')
-
 def openWave():
     wf = wave.open("./test.wav", "r")
 
@@ -120,7 +117,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('top')
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'mental/register.html', {'form': form})

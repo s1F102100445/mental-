@@ -13,6 +13,8 @@
 <body>
     <p>#タイトル</p>
     
+    {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p>
     <div class="circle"></div>
     <div class="circle1"></div>
     <div class="circle2"></div>
@@ -24,6 +26,14 @@
 
     <div id="navigation-buttons">
         <a href="http://127.0.0.1:8000/mental/index_char/" class="button">▶キャラ選択へ</a>
+    <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <p>You are not logged in.</p>
+    <hr>
+    <p><a href="{% url 'login' %}">login</a></p>
+    <hr>
+    <p><a href="{% url 'register' %}">register</a></p>
+    {% endif %}
         
         
 </div>
