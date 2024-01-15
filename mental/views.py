@@ -8,11 +8,28 @@ import openai
 import wave
 import pyaudio
 import json
-
+MAX_TOKENS = 200
 # Create your views here.
 
 def openWave():
     wf = wave.open("./test.wav", "r")
+
+    p = pyaudio.PyAudio()
+    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                    channels=wf.getnchannels(),
+                    rate=wf.getframerate(),
+                    output=True)
+
+    chunk = 1024
+    data = wf.readframes(chunk)
+    while data != b'':
+        stream.write(data)
+        data = wf.readframes(chunk)
+    stream.close()
+    p.terminate()
+
+def openWave2():
+    wf = wave.open("./test2.wav", "r")
 
     p = pyaudio.PyAudio()
     stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
@@ -38,9 +55,10 @@ def index(request):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "あなたは会話相手の心を癒してください。また、会話を続けるようにユーザーに質問を問うてください。つらい、しんどいなどの言葉がきたら、大丈夫と言ってください,敬語を控えるように明るくふるまってください)"},
-            {"role": "user", "content": user_message}
+            {"role": "system", "content": "Please keep your answers short and concise (40 words or less). You are the kind sister who heals the user's mental health. Please use polite language. Please comfort the user when negative words such as hard, tough, etc. come, and sympathize with the user's words. Please speak in Japanese."},
+            {"role": "user", "content": user_message},
         ],
+        max_tokens = MAX_TOKENS
     )
     bot_response = response.choices[0].message["content"]
 
@@ -55,14 +73,22 @@ def index(request):
         'text': bot_response
     }
 )
+    if bot_response.endswith(('.', '。', '?', '？', '!', '！')):
+        if voicevox_response.status_code == 200:
+            audio_data = voicevox_response.content  # 音声データを取得
 
-    if voicevox_response.status_code == 200:
-        audio_data = voicevox_response.content  # 音声データを取得
+            with open('./test.wav', 'wb') as audio_file:
+                audio_file.write(audio_data)
+            openWave()
+            return HttpResponse(json.dumps({'message': bot_response}), content_type="application/json")
+    else:
+        if voicevox_response.status_code == 200:
+            audio_data = voicevox_response.content  # 音声データを取得
 
-        with open('./test.wav', 'wb') as audio_file:
-            audio_file.write(audio_data)
-        openWave()
-        return HttpResponse(json.dumps({'message': bot_response}), content_type="application/json")
+            with open('./test.wav', 'wb') as audio_file:
+                audio_file.write(audio_data)
+            openWave()
+            return HttpResponse(json.dumps({'message': bot_response + "...(続く)"}), content_type="application/json")
 
 def index2(request):
     voicevox_api_key = 'Q_71a0y24-E_607'
@@ -73,9 +99,10 @@ def index2(request):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "こんにちは"},
+            {"role": "system", "content": "You are a jolly nice young man. Please speak in Japanese. Please stop using polite language. Talk to me in a friendly way like a friend Also, please keep your output short and concise."},
             {"role": "user", "content": user_message}
         ],
+        max_tokens = MAX_TOKENS
     )
     bot_response = response.choices[0].message["content"]
 
@@ -84,21 +111,30 @@ def index2(request):
     params={
         'key': voicevox_api_key,
         'speaker': 11,
-        'pitch': 0.1,
+        'pitch': 0.07,
         'intonationScale': 1,
         'speed': 1,
         'text': bot_response
     }
 )
 
-    if voicevox_response.status_code == 200:
-        audio_data = voicevox_response.content  # 音声データを取得
+    if bot_response.endswith(('.', '。', '?', '？', '!', '！')):
+        if voicevox_response.status_code == 200:
+            audio_data = voicevox_response.content  # 音声データを取得
 
-        with open('./test.wav', 'wb') as audio_file:
-            audio_file.write(audio_data)
-        openWave()
-        return HttpResponse(json.dumps({'message': bot_response}), content_type="application/json")
-    
+            with open('./test.wav', 'wb') as audio_file:
+                audio_file.write(audio_data)
+            openWave()
+            return HttpResponse(json.dumps({'message': bot_response}), content_type="application/json")
+    else:
+        if voicevox_response.status_code == 200:
+            audio_data = voicevox_response.content  # 音声データを取得
+
+            with open('./test.wav', 'wb') as audio_file:
+                audio_file.write(audio_data)
+            openWave()
+            return HttpResponse(json.dumps({'message': bot_response + "...(続く)"}), content_type="application/json")
+            
 def index_view(request):
     return render(request, 'mental/index.html')
 

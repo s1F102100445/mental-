@@ -1,5 +1,7 @@
 body {
     background-color: #66d59c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     }
 ul {
     display: flex;
@@ -18,13 +20,23 @@ p.sample2 img {
     }
 p.dis1{
     position: absolute;
-    top: 72%;
+    top: 75%;
     left: 50px;
 }
 p.dis2{
     position: absolute;
-    top: 72%;
-    left: 700px
+    top: 75%;
+    left: 700px;
+}
+h3.an{
+  position: absolute;
+  top:70%;
+  left:60px;
+}
+h3.kazuya{
+  position: absolute;
+  top:70%;
+  left: 720px;
 }
 img {
     
