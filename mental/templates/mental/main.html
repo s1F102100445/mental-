@@ -11,10 +11,10 @@
     <link href="{% static 'mental/css/index.css' %}" rel="stylesheet">
 </head>
 <body>
-    <p>#タイトル</p>
-    
+    <h2>AI TALK</h2>
+    <f>このアプリはあなたの日常生活を支え、メンタルをサポートします</f>
     {% if user.is_authenticated %}
-    <p>Hi {{ user.username }}!</p>
+    <g>ログインに成功しました！こんにちは {{ user.username }}さん!</g>
     <div class="circle"></div>
     <div class="circle1"></div>
     <div class="circle2"></div>
@@ -24,10 +24,11 @@
     <div class="circle6"></div>
     <div class="circle7"></div>
 
-    <div id="navigation-buttons">
-        <a href="http://127.0.0.1:8000/mental/index_char/" class="button">▶キャラ選択へ</a>
-    <a href="{% url 'logout' %}">logout</a>
-    このアプリはあなたのメンタルをサポートします
+    
+    <a href="http://127.0.0.1:8000/mental/index_char/" class="char">▶ キャラ選択</a>
+    <a href="{% url 'logout' %}" class="logout">Logout</a>
+    
+
     {% else %}
     <div class="circle"></div>
     <div class="circle1"></div>
@@ -37,11 +38,9 @@
     <div class="circle5"></div>
     <div class="circle6"></div>
     <div class="circle7"></div>
-    <p>You are not logged in.</p>
-    <hr>
-    <p><a href="{% url 'login' %}">login</a></p>
-    <hr>
-    <p><a href="{% url 'register' %}">register</a></p>
+    <h>You are not logged in.</h>
+    <a href="{% url 'login' %}" class="login">Login</a>
+    <a href="{% url 'register' %}" class="register">▶ Sign in</a>
     {% endif %}
         
         
