@@ -11,8 +11,8 @@ body {
     width: 450px;
     height: auto;
     position: absolute;
-    top: 100px;
-    left: 5%;
+    top: 85px;
+    left: 30px;
   }
   p.credit{
     position: absolute;
@@ -81,7 +81,7 @@ body {
     display: none;
     box-sizing: border-box;
     position: absolute;
-    left: 50%;
+    left: 45%;
   }
   
   /* ヘッダー部分のスタイル */

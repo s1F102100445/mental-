@@ -1,5 +1,7 @@
 body {
     background-color: #66d59c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     }
 ul {
     display: flex;
@@ -56,6 +58,7 @@ p.sample2 img {
     }
 p.dis1{
     position: absolute;
+<<<<<<< HEAD
     top: 65%;
     left: 5%;
     font-size: 30px;
@@ -67,6 +70,25 @@ p.dis2{
     left: 46%;
     font-size: 30px;
     text-decoration: overline;
+=======
+    top: 75%;
+    left: 50px;
+}
+p.dis2{
+    position: absolute;
+    top: 75%;
+    left: 700px;
+}
+h3.an{
+  position: absolute;
+  top:70%;
+  left:60px;
+}
+h3.kazuya{
+  position: absolute;
+  top:70%;
+  left: 720px;
+>>>>>>> 6d1f168afcc2eafb8b8c03f14f3b2208bc02e7a8
 }
 img {
     
