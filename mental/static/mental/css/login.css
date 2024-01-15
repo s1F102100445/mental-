@@ -5,6 +5,19 @@ ul {
     display: flex;
     list-style: none;
 }
+
+@keyframes color-change {
+  0% {
+    color: white;
+  }
+  50% {
+    color: rgb(255, 255, 113); 
+  }
+  100% {
+    color: white;
+  }
+}
+
 p.sample1 img {
     position: absolute;
     width: 500px;
@@ -16,15 +29,44 @@ p.sample2 img {
     height: auto;
     width: 380px;
     }
+
+    c{
+      position: absolute;
+      bottom: 31%;
+      left: 17%;
+      font-size: 50px;
+      font-weight:bold;
+      color:#3c3c3c;
+    }
+    d{
+      position: absolute;
+      bottom: 31%;
+      left: 55%;
+      font-size: 50px;
+      font-weight:bold;
+      color:#3c3c3c;
+    }
+    e{
+      position: absolute;
+      bottom: 80%;
+      left: 75%;
+      font-size: 50px;
+      font-weight:bold;
+      animation: color-change 10s infinite;
+    }
 p.dis1{
     position: absolute;
-    top: 72%;
-    left: 50px;
+    top: 65%;
+    left: 5%;
+    font-size: 30px;
+    text-decoration: overline;
 }
 p.dis2{
     position: absolute;
-    top: 72%;
-    left: 700px
+    top: 65%;
+    left: 46%;
+    font-size: 30px;
+    text-decoration: overline;
 }
 img {
     

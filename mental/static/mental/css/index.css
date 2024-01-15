@@ -8,14 +8,27 @@ body {
   overflow: hidden;
   }
 p.sample img {
-  width: 500px;
+  width: 450px;
   height: auto;
   position: absolute;
-  top: 100px;
+  top: 25%;
+  left: 6%;
 }
 p.credit{
   position: absolute;
   bottom: 10%;
+  font-size: 30px;
+  font-weight:bold;
+  left: 8%;
+  text-decoration: overline;
+}
+c{
+  position: absolute;
+  bottom: 15%;
+  left: 17%;
+  font-size: 50px;
+  font-weight:bold;
+  color:#3c3c3c;
 }
   p {
     margin: 0px;
@@ -27,12 +40,13 @@ p.credit{
    }
    .chatbot-button {
     position: fixed;
-    top: 80%;
+    top: 85%;
     padding-left: 500px;
+    left:25%;
   }
   
   .chatbot-button button {
-    background-color: burlywood;
+    background-color: #007bff;
     padding: 15px 25px;
     font-size: 35px;
     border: none;

@@ -16,7 +16,19 @@ body {
   }
   p.credit{
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
+    font-size: 30px;
+    font-weight:bold;
+    left: 8%;
+    text-decoration: overline;
+  }
+  c{
+    position: absolute;
+    bottom: 15%;
+    left: 17%;
+    font-size: 50px;
+    font-weight:bold;
+    color:#3c3c3c;
   }
     p {
       margin: 0px;
@@ -28,12 +40,13 @@ body {
      }
      .chatbot-button {
       position: fixed;
-      top: 80%;
+      top: 85%;
       padding-left: 500px;
+      left:25%;
     }
     
     .chatbot-button button {
-      background-color: burlywood;
+      background-color: #007bff;
       padding: 15px 25px;
       font-size: 35px;
       border: none;
