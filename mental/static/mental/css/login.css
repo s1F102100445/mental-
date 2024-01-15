@@ -34,16 +34,16 @@ p.sample2 img {
 
     c{
       position: absolute;
-      bottom: 31%;
-      left: 17%;
+      bottom: 34%;
+      left: 16%;
       font-size: 50px;
       font-weight:bold;
       color:#3c3c3c;
     }
     d{
       position: absolute;
-      bottom: 31%;
-      left: 55%;
+      bottom: 33%;
+      left: 53%;
       font-size: 50px;
       font-weight:bold;
       color:#3c3c3c;
@@ -56,40 +56,72 @@ p.sample2 img {
       font-weight:bold;
       animation: color-change 10s infinite;
     }
+p.an{
+  top: 65%;
+    left: 5%;
+}
+p.kaz{
+  top: 65%;
+    left: 5%;
+}
 p.dis1{
     position: absolute;
-<<<<<<< HEAD
-    top: 65%;
-    left: 5%;
+    top: 62%;
+    left: 6%;
     font-size: 30px;
     text-decoration: overline;
 }
 p.dis2{
     position: absolute;
-    top: 65%;
+    top: 63%;
     left: 46%;
     font-size: 30px;
     text-decoration: overline;
-=======
-    top: 75%;
-    left: 50px;
+
 }
-p.dis2{
-    position: absolute;
-    top: 75%;
-    left: 700px;
+
+.speech-bubble {
+  position: absolute; 
+  top: 75%; 
+  left: 0%; 
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 550px;
 }
-h3.an{
+.speech-bubble:after {
+  content: '';
   position: absolute;
-  top:70%;
-  left:60px;
+  top: 10%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent;
 }
-h3.kazuya{
+
+.speech-bubble1 {
+  position: absolute; 
+  top: 75%; 
+  left: 40%; 
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 510px;
+}
+.speech-bubble1:after {
+  content: '';
   position: absolute;
-  top:70%;
-  left: 720px;
->>>>>>> 6d1f168afcc2eafb8b8c03f14f3b2208bc02e7a8
+  top: 10%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent;
 }
+
 img {
     
     border: solid 3px #777777; /* 色：グレー */
