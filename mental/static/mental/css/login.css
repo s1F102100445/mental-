@@ -56,14 +56,7 @@ p.sample2 img {
       font-weight:bold;
       animation: color-change 10s infinite;
     }
-p.an{
-  top: 65%;
-    left: 5%;
-}
-p.kaz{
-  top: 65%;
-    left: 5%;
-}
+
 p.dis1{
     position: absolute;
     top: 62%;
