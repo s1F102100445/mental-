@@ -1,0 +1,23 @@
+databases:
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+    region: singapore
+    plan: free
+
+services:
+  - type: web
+    name: aitalk
+    env: python
+    region: singapore
+    plan: free
+    branch: main
+    healthCheckPath: /
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mental-.wsgi --log-file -"
+    envVars:
+      - key: WEB_CONCURRENCY
+        value: 4
+
+
+    autoDeploy: true

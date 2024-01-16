@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-mlt!xuitc+^0dezjin!e9qn*j!gvdobp&lm5j=7t)afrci2&md
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+AALLOWED_HOSTS = ['127.0.0.1', 'aitalk.onrender.com']
+
 
 
 # Application definition
