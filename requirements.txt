@@ -34,6 +34,8 @@ openai==0.28.0
 packaging==23.1
 pipwin==0.5.2
 psycopg2-binary==2.9.5
+playsound==1.2.2
+PyAudio==0.2.11
 pydantic==2.4.0
 pydantic_core==2.10.0
 pyjsparser==2.7.1
