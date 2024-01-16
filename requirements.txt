@@ -36,7 +36,7 @@ packaging==23.1
 pipwin==0.5.2
 playsound==1.2.2
 psycopg2-binary==2.9.5
-PyAudio @ file:///C:/Users/iniad/OneDrive/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88/mental-/PyAudio-0.2.11-cp39-cp39-win_amd64.whl#sha256=d237571fa256229fbb9e69cd0b7cb62a0ebb60af9bb43e694371b9a75e3b58b4
+PyAudio==0.2.11
 pydantic==2.4.0
 pydantic_core==2.10.0
 pyjsparser==2.7.1
