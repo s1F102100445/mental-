@@ -41,9 +41,10 @@ f{
   position: absolute;
   bottom: 2%;
   font-size: 25px;
+  left: 20%;
   font-weight:bold;
-  left: 28%;
   color:#ffffff;
+  text-align: center;
 }
 
 g{
