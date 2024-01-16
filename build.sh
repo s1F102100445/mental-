@@ -3,6 +3,7 @@
 set -o errexit
 
 pip install --upgrade pip
+pip install portaudio
 pip install pyaudio
 pip install -r requirements.txt
 python manage.py collectstatic --no-input
