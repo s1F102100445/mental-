@@ -32,7 +32,7 @@ openai==0.28.0
 packaging==23.1
 playsound==1.2.2
 psycopg2-binary==2.9.5
-PyAudio==0.2.14
+PyAudio @ file:///C:/Users/iniad/Downloads/PyAudio-0.2.11-cp39-cp39-win_amd64.whl#sha256=d237571fa256229fbb9e69cd0b7cb62a0ebb60af9bb43e694371b9a75e3b58b4
 pydantic==2.4.0
 pydantic_core==2.10.0
 python-decouple==3.6
