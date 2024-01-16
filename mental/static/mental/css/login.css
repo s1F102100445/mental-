@@ -1,10 +1,27 @@
 body {
     background-color: #66d59c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     }
 ul {
     display: flex;
     list-style: none;
 }
+
+
+
+@keyframes color-change {
+  0% {
+    color: white;
+  }
+  50% {
+    color: rgb(255, 255, 113); 
+  }
+  100% {
+    color: white;
+  }
+}
+
 p.sample1 img {
     position: absolute;
     width: 500px;
@@ -16,29 +33,103 @@ p.sample2 img {
     height: auto;
     width: 380px;
     }
+
+    c{
+      position: absolute;
+      bottom: 34%;
+      left: 16%;
+      font-size: 50px;
+      font-weight:bold;
+      color:#3c3c3c;
+    }
+    d{
+      position: absolute;
+      bottom: 33%;
+      left: 53%;
+      font-size: 50px;
+      font-weight:bold;
+      color:#3c3c3c;
+    }
+    e{
+      position: absolute;
+      bottom: 80%;
+      left: 75%;
+      font-size: 50px;
+      font-weight:bold;
+      animation: color-change 10s infinite;
+    }
+
 p.dis1{
     position: absolute;
-    top: 72%;
-    left: 50px;
+    top: 62%;
+    left: 6%;
+    font-size: 30px;
+    text-decoration: overline;
 }
 p.dis2{
     position: absolute;
-    top: 72%;
-    left: 700px
+    top: 63%;
+    left: 46%;
+    font-size: 30px;
+    text-decoration: overline;
+
 }
+
+.speech-bubble {
+  position: absolute; 
+  top: 75%; 
+  left: 0%; 
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 550px;
+}
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent;
+}
+
+.speech-bubble1 {
+  position: absolute; 
+  top: 75%; 
+  left: 40%; 
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  width: 510px;
+}
+.speech-bubble1:after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent;
+}
+
 img {
     
-    border: solid 3px #777777; /* 色：グレー */
+    border: solid 3px #777777; 
     }
 .circle {
-    width: 100px; /* 円の幅を設定 */
-    height: 100px; /* 円の高さを設定 */
-    border-radius: 50%; /* 円形にする */
-    background-color: rgb(255, 255, 113); /* 背景色を黄色に設定 */
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background-color: rgb(255, 255, 113); 
     position: absolute;
     top:20px;
     left:-15px;
-    animation: riseUp 11s infinite; /* 上に上がるアニメーションを設定 */
+    animation: riseUp 11s infinite; 
   }
   
   @keyframes riseUp {
@@ -46,17 +137,17 @@ img {
       transform: translateY(100vh);
     }
     50% {
-      transform: translateY(-100vh); /* 画面外まで上がる */
+      transform: translateY(-100vh); 
     }
     100% {
-      transform: translateY(-100vh); /* 画面外で停止 */
+      transform: translateY(-100vh); 
     }
   }
   
   .circle1 {
-    width: 50px; /* 円の幅を設定 */
-    height: 50px; /* 円の高さを設定 */
-    left: 12%; /* 左からの位置を設定 */
+    width: 50px; 
+    height: 50px; 
+    left: 12%; 
     animation: riseUp 10s infinite; 
     background-color: rgb(255, 255, 113);
     border-radius: 50%;

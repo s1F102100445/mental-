@@ -25,7 +25,9 @@
         <img src="{% static 'mental\img\IMG_1623.jpg' %}" alt="画像の説明">
         </p>
     </div>
-    <p class="credit">VOICEVOX(音声): 春日部つむぎ</p>
+    <c>アン</c>
+    <p class="credit">VOICEVOX(音声): 四国めたん</p>
+
     <div id="navigation-buttons">
         <a href="http://127.0.0.1:8000/mental/index_main/" class="button">ホームに戻る</a>
         <a href="http://127.0.0.1:8000/mental/index_char/" class="button">▶キャラ選択へ</a>
@@ -44,7 +46,7 @@
         </div>
         <div class="chatbot-messages" id="messages"></div>
         <div class="chatbot-input">
-            <input type="text" id="userInput" onkeydown="Enter(event)" placeholder="何かお困りですか？">
+            <input type="text" id="userInput" onkeydown="Enter(event)" placeholder="テキストを入力してください" v-model="forms.user">
             <button id="sendMessage">送信</button>
         </div>
     </div>
@@ -52,7 +54,10 @@
     
     <script>
         $(document).ready(function() {
-            $('#messages').append('<div class="bot-message"><span>' + "こんにちは！今日何があったか聞かせてくれる？" + '</span></div>');
+            if (localStorage.getItem('chatHistory1')) {
+                $('#messages').html(localStorage.getItem('chatHistory1'));
+            }
+            $('#messages').append('<div class="bot-message"><span>' + "こんにちは！今日何があったか聞かせてくれますか？" + '</span></div>');
             $('#openChatbot').click(function() {
                 $('#openChatbot').fadeOut();
                 $('.chatbot-window').fadeIn();
@@ -64,6 +69,10 @@
                 sendMessage();
             });
         });
+        function saveChatHistory() {
+            var chatHistory = $('.chatbot-messages').html();
+            localStorage.setItem('chatHistory1', chatHistory);
+        }
 
         function Enter(event){
             if (event.key ==="Enter") {
@@ -90,7 +99,7 @@
     if (validateForm()){
         let message = $('#userInput').val();
         $('#messages').append('<div class="user-message"><span>' + message + '</span></div>');
-
+        saveChatHistory();
         $.post("{% url 'index' %}", { message: message, csrfmiddlewaretoken: '{{ csrf_token }}' }, function(data) {
             handleBotResponse(data.message);
         });
@@ -101,8 +110,9 @@
 
         function handleBotResponse(message) {
     $('#messages').append('<div class="bot-message"><span>' + message + '</span></div>');
+    saveChatHistory();
 }
-
+        
     </script>
 </body>
 </html>

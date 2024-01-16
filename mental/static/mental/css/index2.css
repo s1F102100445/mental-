@@ -11,12 +11,24 @@ body {
     width: 450px;
     height: auto;
     position: absolute;
-    top: 100px;
-    left: 5%;
+    top: 85px;
+    left: 30px;
   }
   p.credit{
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
+    font-size: 30px;
+    font-weight:bold;
+    left: 5%;
+    text-decoration: overline;
+  }
+  c{
+    position: absolute;
+    bottom: 15%;
+    left: 12%;
+    font-size: 50px;
+    font-weight:bold;
+    color:#3c3c3c;
   }
     p {
       margin: 0px;
@@ -28,12 +40,13 @@ body {
      }
      .chatbot-button {
       position: fixed;
-      top: 80%;
+      top: 85%;
       padding-left: 500px;
+      left:25%;
     }
     
     .chatbot-button button {
-      background-color: burlywood;
+      background-color: #007bff;
       padding: 15px 25px;
       font-size: 35px;
       border: none;
@@ -49,7 +62,6 @@ body {
       vertical-align:center;
     }
     
-    /* マウスオーバー時のスタイル */
     .chatbot-button button:hover {
       background-color: #f1c27d; 
     }
@@ -68,10 +80,10 @@ body {
     display: none;
     box-sizing: border-box;
     position: absolute;
-    left: 50%;
+    left: 45%;
   }
   
-  /* ヘッダー部分のスタイル */
+
   .chatbot-header {
     padding: 10px;
     background-color: #333;
@@ -81,25 +93,25 @@ body {
     display: flex;
     justify-content: space-between;
   }
-  /* メッセージエリアのスタイル */
+  
   .chatbot-messages {
     padding: 10px;
     height: 380px;
     overflow-y: auto;
   }
   
-  /* 各メッセージのスタイル */
+  
   .chatbot-messages > div {
     margin-bottom: 10px;
     clear: both;
   }
   
-  /* ユーザーのメッセージスタイル */
+  
   .chatbot-messages > div.user-message {
     text-align: right;
   }
   
-  /* ユーザーの吹き出しスタイル */
+  
   .chatbot-messages > div.user-message > span {
     display: inline-block;
     background: #daf8cb;
@@ -108,12 +120,12 @@ body {
     max-width: 70%;
   }
   
-  /* ボット（キャラクター）のメッセージスタイル */
+  
   .chatbot-messages > div.bot-message {
     text-align: left;
   }
   
-  /* ボットの吹き出しスタイル */
+  
   .chatbot-messages > div.bot-message > span {
     display: inline-block;
     background: #fff;
@@ -122,7 +134,7 @@ body {
     max-width: 70%;
   }
   
-  /* テキスト入力部分のスタイル */
+  
   .chatbot-input {
     padding: 10px;
     background: #f7f7f7;
@@ -130,7 +142,7 @@ body {
     display: flex;
   }
   
-  /* テキスト入力フィールドのスタイル */
+
   .chatbot-input > input[type="text"] {
     flex-grow: 1;
     padding: 5px;
@@ -139,7 +151,7 @@ body {
     border-radius: 4px;
   }
   
-  /* "送信"ボタンのスタイル */
+
   .chatbot-input > button {
     padding: 5px 10px;
     background-color: #5cb85c;
@@ -153,14 +165,14 @@ body {
     background-color: #4cae4c;
   }
   .circle {
-    width: 100px; /* 円の幅を設定 */
-    height: 100px; /* 円の高さを設定 */
-    border-radius: 50%; /* 円形にする */
-    background-color: rgb(255, 255, 113); /* 背景色を黄色に設定 */
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background-color: rgb(255, 255, 113); 
     position: absolute;
     top:20px;
     left:-15px;
-    animation: riseUp 11s infinite; /* 上に上がるアニメーションを設定 */
+    animation: riseUp 11s infinite; 
   }
   
   @keyframes riseUp {
@@ -168,17 +180,17 @@ body {
       transform: translateY(100vh);
     }
     50% {
-      transform: translateY(-100vh); /* 画面外まで上がる */
+      transform: translateY(-100vh); 
     }
     100% {
-      transform: translateY(-100vh); /* 画面外で停止 */
+      transform: translateY(-100vh); 
     }
   }
   
   .circle1 {
-    width: 50px; /* 円の幅を設定 */
-    height: 50px; /* 円の高さを設定 */
-    left: 12%; /* 左からの位置を設定 */
+    width: 50px; 
+    height: 50px; 
+    left: 12%; 
     animation: riseUp 10s infinite; 
     background-color: rgb(255, 255, 113);
     border-radius: 50%;
