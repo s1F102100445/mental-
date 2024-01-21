@@ -19,16 +19,24 @@
     <div class="circle5"></div>
     <div class="circle6"></div>
     <div class="circle7"></div>
-    <h1>Login</h1>
+
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Login" />
-    </form>
-
-    <p><a href="{% url 'index_main' %}">top</a></p>
+    <div style="width: 100%;">
+      <div style="width: 300px; margin: 100px auto 100px auto;">
+        <h1>Login</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div style="width: 100%; margin: 25px auto 0 auto; text-align: center;">
+            <input type="submit" value="Login" style="width: 200px; padding: 8px 8px 8px 8px; border-radius: 10px;" />
+          </div>
+        </form>
+        <p style="width: 100%; margin: 10px auto 0 auto; text-align: center;">
+          <a href="{% url 'index_main' %}">top</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>

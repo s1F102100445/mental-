@@ -47,7 +47,7 @@ def openWave2():
 
 @csrf_exempt
 def index(request):
-    voicevox_api_key = 'Q_71a0y24-E_607'
+    voicevox_api_key = 'x04-526_o-t7J61'
     openai.api_key = 'vFdJode_WToN5fvInVNyaYdkuZ88-BRSSNI-r6nSRqb8bTOl8erUZ_vYfI4XGtwqgujt5JtJp5baJSUeMvVZErg'
     openai.api_base = 'https://api.openai.iniad.org/api/v1'
 
@@ -91,7 +91,7 @@ def index(request):
             return HttpResponse(json.dumps({'message': bot_response + "...(続く)"}), content_type="application/json")
 
 def index2(request):
-    voicevox_api_key = 'Q_71a0y24-E_607'
+    voicevox_api_key = 'x04-526_o-t7J61'
     openai.api_key = 'vFdJode_WToN5fvInVNyaYdkuZ88-BRSSNI-r6nSRqb8bTOl8erUZ_vYfI4XGtwqgujt5JtJp5baJSUeMvVZErg'
     openai.api_base = 'https://api.openai.iniad.org/api/v1'
 
